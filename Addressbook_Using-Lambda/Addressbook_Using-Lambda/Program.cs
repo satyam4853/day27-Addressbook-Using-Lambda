@@ -9,13 +9,13 @@ namespace Addressbook_Using_Lambda
 
 
             Console.WriteLine("**************************Welcome To Address Book Using Lambda Problem ****************************");
-
             AddressBookDetails addressbookdetails = new AddressBookDetails();
 
             while (true)
             {
 
-                Console.WriteLine("1.Add member to Contact list \n2.View Members in Contact List\n3.Edit members Contacts list\n4.Delete members Contacts list\n5.Search for details\n6.View details of city or state\n7.Count by city or state\n8.Sort the list\n9.Read list from file\n10.write list from file\n11.Exit");
+                
+                Console.WriteLine("1.Add member to Contact list \n2.View Members in Contact List\n3.Edit members Contacts list\n4.Delete members Contacts list\n5.Search for details\n6.View details of city or state\n7.Count by city or state\n8.Sort the list\n9.Read list from file\n10.write list from file\n11.Read from Csv file\n12.Write from csv file\n13.Exit");
                 Console.WriteLine("Enter an option:");
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
@@ -49,10 +49,17 @@ namespace Addressbook_Using_Lambda
                     case 10:
                         addressbookdetails.WriteToFile();
                         break;
+                    case 11:
+                        addressbookdetails.ReadFromCsvFile();
+                        break;
+                    case 12:
+                        addressbookdetails.WriteToCsvFile();
+                        break;
                     default:
                         // to exit from main method
                         Console.WriteLine("Exited");
                         return;
+
 
                 }
             }
