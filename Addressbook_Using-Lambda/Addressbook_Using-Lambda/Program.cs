@@ -6,6 +6,8 @@ namespace Addressbook_Using_Lambda
     {
         static void Main(string[] args)
         {
+
+
             Console.WriteLine("**************************Welcome To Address Book Using Lambda Problem ****************************");
 
             AddressBookDetails addressbookdetails = new AddressBookDetails();
@@ -13,8 +15,7 @@ namespace Addressbook_Using_Lambda
             while (true)
             {
 
-                
-                Console.WriteLine("1.Add member to Contact list \n2.View Members in Contact List\n3.Edit members Contacts list\n4.Delete members Contacts list\n5.Exit");
+                Console.WriteLine("1.Add member to Contact list \n2.View Members in Contact List\n3.Edit members Contacts list\n4.Delete members Contacts list\n5.Search for details\n6.Exit");
                 Console.WriteLine("Enter an option:");
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
@@ -31,13 +32,20 @@ namespace Addressbook_Using_Lambda
                         addressbookdetails.DeleteDetails();
                         break;
                     case 5:
+                        addressbookdetails.SearchDetails();
+                        break;
+                    case 6:
                         // to exit from main method
                         Console.WriteLine("Exited");
                         return;
 
+
                 }
 
             }
-        }
+                   }
     }
 }
+
+           
+ 
