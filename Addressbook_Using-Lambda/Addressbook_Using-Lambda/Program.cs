@@ -10,39 +10,37 @@ namespace Addressbook_Using_Lambda
 
             Console.WriteLine("**************************Welcome To Address Book Using Lambda Problem ****************************");
 
-            AddressBookDetails abd = new AddressBookDetails();
+            AddressBookDetails addressbookdetails = new AddressBookDetails();
 
             while (true)
             {
-
-
                 Console.WriteLine("1.Add member to Contact list \n2.View Members in Contact List\n3.Edit members Contacts list\n4.Delete members Contacts list\n5.Search for details\n6.View details of city or state\n7.Count by city or state\n8.Sort the list\n9.Exit");
                 Console.WriteLine("Enter an option:");
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
                     case 1:
-                        abd.AddMember();
+                        addressbookdetails.AddMember();
                         break;
                     case 2:
-                        abd.ViewContacts();
+                        addressbookdetails.ViewContacts();
                         break;
                     case 3:
-                        abd.EditDetails();
+                        addressbookdetails.EditDetails();
                         break;
                     case 4:
-                        abd.DeleteDetails();
+                        addressbookdetails.DeleteDetails();
                         break;
                     case 5:
-                        abd.SearchDetails();
+                        addressbookdetails.SearchDetails();
                         break;
                     case 6:
-                        abd.ViewDetailsByStateOrCity();
+                        addressbookdetails.ViewDetailsByStateOrCity();
                         break;
                     case 7:
-                        abd.CountByStateOrCity();
+                        addressbookdetails.CountByStateOrCity();
                         break;
                     case 8:
-                        abd.SortList();
+                        addressbookdetails.SortEntries();
                         break;
                     default:
                         // to exit from main method
@@ -55,6 +53,11 @@ namespace Addressbook_Using_Lambda
         }
     }
 }
+
+
+
+
+
 
 
 
