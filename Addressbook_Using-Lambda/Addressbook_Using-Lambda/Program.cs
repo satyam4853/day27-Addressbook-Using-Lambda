@@ -15,8 +15,8 @@ namespace Addressbook_Using_Lambda
             while (true)
             {
 
-              
-                Console.WriteLine("1.Add member to Contact list \n2.View Members in Contact List\n3.Edit members Contacts list\n4.Delete members Contacts list\n5.Search for details\n6.View details of city or state\n7.Exit");
+
+                Console.WriteLine("1.Add member to Contact list \n2.View Members in Contact List\n3.Edit members Contacts list\n4.Delete members Contacts list\n5.Search for details\n6.View details of city or state\n7.Count by city or state\n8.Exit");
                 Console.WriteLine("Enter an option:");
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
@@ -38,6 +38,9 @@ namespace Addressbook_Using_Lambda
                     case 6:
                         addressbookdetails.ViewDetailsByStateOrCity();
                         break;
+                    case 7:
+                        addressbookdetails.CountByStateOrCity();
+                        break;
                     default:
                         // to exit from main method
                         Console.WriteLine("Exited");
@@ -49,6 +52,13 @@ namespace Addressbook_Using_Lambda
         }
     }
 }
+
+
+
+
+
+
+
 
 
 

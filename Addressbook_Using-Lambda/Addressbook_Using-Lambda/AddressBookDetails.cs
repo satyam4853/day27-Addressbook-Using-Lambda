@@ -359,12 +359,34 @@ namespace Addressbook_Using_Lambda
                 case 1:
                     Console.WriteLine("Enter the name of city in which you want to view:");
                     string cityName = Console.ReadLine();
-                    ViewByCityName(cityName);
+                    ViewByCityName(cityName, "count");
                     break;
                 case 2:
                     Console.WriteLine("Enter the state of city in which you want to view:");
                     string stateName = Console.ReadLine();
-                    ViewByStateName(stateName);
+                    ViewByStateName(stateName, "count");
+                    break;
+                default:
+                    return;
+
+            }
+
+        }
+        public void CountByStateOrCity()
+        {
+
+            Console.WriteLine("1.Count by city name\n2.Count By state name\nEnter your option:");
+            switch (Convert.ToInt32(Console.ReadLine()))
+            {
+                case 1:
+                    Console.WriteLine("Enter the name of city in which you want to count persons:");
+                    string cityName = Console.ReadLine();
+                    ViewByCityName(cityName, "count");
+                    break;
+                case 2:
+                    Console.WriteLine("Enter the name of state in which you want to count persons:");
+                    string stateName = Console.ReadLine();
+                    ViewByStateName(stateName, "count");
                     break;
                 default:
                     return;
@@ -373,7 +395,7 @@ namespace Addressbook_Using_Lambda
 
         }
 
-        public void ViewByCityName(string cityName)
+        public void ViewByCityName(string cityName, string count)
         {
             if (addressBookDictionary.Count > 0)
             {
@@ -399,7 +421,7 @@ namespace Addressbook_Using_Lambda
                 Console.WriteLine("Adress book is empty");
             }
         }
-        public void ViewByStateName(string stateName)
+        public void ViewByStateName(string stateName, string count)
         {
             if (addressBookDictionary.Count > 0)
             {
