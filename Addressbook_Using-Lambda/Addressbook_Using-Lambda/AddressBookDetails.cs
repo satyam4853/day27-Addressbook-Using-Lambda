@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -6,9 +7,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
+
+
+
+
 namespace Addressbook_Using_Lambda
 {
-   public class AddressBookDetails
+    public class AddressBookDetails
     {
         private List<Person> contacts;
         private static List<Person> searchContacts = new List<Person>();
@@ -652,7 +657,7 @@ namespace Addressbook_Using_Lambda
             string filePath = @"C:\Users\SATYAM VAISHNAV\fellowship_program\day27\day27-Addressbook-Using-Lambda\Addressbook_Using-Lambda\Addressbook_Using-Lambda\Details.csv";
             try
             {
-                string abName = "Ab-TN";
+                string abName = "satyam-vaishnav";
                 if (File.Exists(filePath))
                 {
                     //Stream reader for reading from csv file
@@ -677,7 +682,7 @@ namespace Addressbook_Using_Lambda
         public void WriteToCsvFile()
         {
             //File path of csv file
-            string filePath = @"C:\Users\SATYAM VAISHNAV\fellowship_program\day27\day27-Addressbook-Using-Lambda\Addressbook_Using-Lambda\Addressbook_Using-Lambda\Details.csv";
+            string filePath = @"C:\Users\SATYAM VAISHNAV\fellowship_program\day27\day27-Addressbook-Using-Lambda\Addressbook_Using-Lambda\Addressbook_Using-Lambda\Details.Json";
             try
             {
                 if (File.Exists(filePath))
@@ -714,5 +719,83 @@ namespace Addressbook_Using_Lambda
                 Console.WriteLine($"Exception: {ex.Message}");
             }
         }
+        
+
+            public void ReadFromJsonFile()
+            {
+                string filePath = @"C:\Users\SATYAM VAISHNAV\fellowship_program\day27\day27-Addressbook-Using-Lambda\Addressbook_Using-Lambda\Addressbook_Using-Lambda\Details.Json";
+                try
+                {
+                    string SVName = "SV-satyam";
+                    if (File.Exists(filePath))
+                    {
+                        // convert json records to list
+                        List<Person> jsonList = JsonConvert.DeserializeObject<List<Person>>(File.ReadAllText(filePath));
+                        addressBookDictionary.Add(SVName, jsonList);
+                        Console.WriteLine("Data added succesfully");
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Exception: {ex.Message}");
+                }
+
+
+            }
+        
+            /// <summary>
+            /// Write records into json file
+            /// </summary>
+           public void WriteToJsonFile()
+            {
+                string filePath = @"C:\Users\SATYAM VAISHNAV\fellowship_program\day27\day27-Addressbook-Using-Lambda\Addressbook_Using-Lambda\Addressbook_Using-Lambda\Details.Json";
+                try
+                {
+
+                    if (addressBookDictionary.Count > 0)
+                    {
+                        //initially clear the file
+                        File.WriteAllText(filePath, string.Empty);
+
+                        //Initialising json serializer
+                        JsonSerializer serializer = new JsonSerializer();
+                        using (StreamWriter writer = new StreamWriter(filePath))
+                        using (JsonWriter jsonWriter = new JsonTextWriter(writer))
+                        {
+                            foreach (KeyValuePair<string, List<Person>> dict in addressBookDictionary)
+                            {
+                                //initialising contacts list
+                                contacts = new List<Person>();
+                                foreach (var addressBook in dict.Value)
+                                {
+
+                                    contacts.Add(addressBook);
+
+                                }
+                                //write records into json file
+                                serializer.Serialize(jsonWriter, contacts);
+                            }
+                        }
+                        Console.WriteLine("Records Written into json file");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Address Book is Empty");
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Exception: {ex.Message}");
+                }
+
+
+           }
     }
 }
+
+
+

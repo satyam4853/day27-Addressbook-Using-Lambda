@@ -1,0 +1,22 @@
+[
+  {
+    "address": "parvati , pune",
+    "city": "pune",
+    "email": "vaishnav@gmail.com",
+    "firstName": "satyam ",
+    "lastName": "vaishnav",
+    "phoneNumber": "8446019597",
+    "state": "mahrashtra",
+    "zipCode": 414009
+  },
+  {
+    "firstName": "rushi",
+    "lastName": "badhe",
+    "address": "akola",
+    "city": "akola",
+    "state": "mahrashtra",
+    "zipCode": 417557,
+    "phoneNumber": "9011519390",
+    "email": "rushi@gmai.com"
+  }
+]
